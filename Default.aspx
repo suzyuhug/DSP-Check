@@ -9,21 +9,21 @@
     <style type="text/css">
         .auto-style1 {
             position: absolute;
-            top: 72px;
-            left: 89px;
+            top: 108px;
+            left: 82px;
             z-index: 1;
         }
         .auto-style2 {
             position: absolute;
-            top: 70px;
-            left: 123px;
+            top: 103px;
+            left: 122px;
             z-index: 1;
             height: 23px;
         }
         .auto-style3 {
             position: absolute;
-            top: 71px;
-            left: 283px;
+            top: 105px;
+            left: 287px;
             z-index: 1;
             width: 73px;
             height: 24px;
@@ -37,17 +37,20 @@
             z-index: 1;
         }
         .auto-style5 {
-            position: absolute;
-            top: 137px;
-            left: 71px;
-            z-index: 1;
+            text-align: center;
+        }
+        .auto-style6 {
+            font-size: xx-large;
+            color: #0099FF;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h>DSP 检查工具</h> 
+        <div class="auto-style5">
+            <h><span class="auto-style6"><strong>
+            <br />
+            DSP 检查工具</strong></span></h> 
             <br />
             <br />
             <br />
@@ -55,7 +58,6 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" CssClass="auto-style5" OnClick="Button2_Click" Text="Button" />
             <br />
             <asp:Label ID="Label1" runat="server" CssClass="auto-style1" Text="PO:"></asp:Label>
             <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style2"></asp:TextBox>

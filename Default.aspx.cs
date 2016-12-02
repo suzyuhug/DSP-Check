@@ -9,10 +9,26 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+
+    DataTable dt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-
+        dt.Columns.Add("料号", typeof(string));
+        dt.Columns.Add("数量", typeof(string));
+        dt.Columns.Add("确认", typeof(string));
+        dt.Rows.Add("TDN-624-103-00", "1");
+        dt.Rows.Add("TDN-906-020-02", "1");
+        dt.Rows.Add("TDN-873-572-21", "1");
+        dt.Rows.Add("TDN-579-187-03", "1");
+        dt.Rows.Add("TDN-579-187-04", "1");
+        dt.Rows.Add("TDN-574-813-01", "2");
+        dt.Rows.Add("TDN-600-199-00", "1");
+        dt.Rows.Add("TDN-504-042-00", "1");
+        dt.Rows.Add("TDN-504-042-01", "1");
+        dt.Rows.Add("TDN-504-079-00", "2");
+        dt.Rows.Add("TDN-601-979-18", "6");
+        GridView1.DataSource = dt;
+        GridView1.DataBind();
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -27,21 +43,8 @@ public partial class _Default : System.Web.UI.Page
         dp.Fill(TOV);      
         cn.Close();
 
-        DataTable dt = new DataTable();
-        dt.Columns.Add("料号", typeof(string));
-        dt.Columns.Add("数量", typeof(string));
-        dt.Columns.Add("确认", typeof(string));
-        dt.Rows.Add("TDN-624-103-00", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-906-020-02", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-873-572-21", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-579-187-03", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-579-187-04", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-574-813-01", "2", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-600-199-00", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-504-042-00", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-504-042-01", "1", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-504-079-00", "2", ResolveUrl("~/image/tick.png"));
-        dt.Rows.Add("TDN-601-979-18", "6", ResolveUrl("~/image/tick.png"));
+      
+       
         string pn = null;
         for (int i = 0; i < dt.Rows.Count ; i++)
         {
@@ -49,9 +52,13 @@ public partial class _Default : System.Web.UI.Page
             DataRow[] NopoArr = TOV.Select("Component='" + pn + "'");
             if (NopoArr.Length > 0)
             {
-                dt.Rows[i]["确认"] = ResolveUrl("~/image/red.png");
+                dt.Rows[i]["确认"] = ResolveUrl("~/image/tick.png");
 
-                TextBox1.Text = pn;
+               
+            }
+            else
+            {
+                dt.Rows[i]["确认"] = ResolveUrl("~/image/error.png");
             }
             }
 
