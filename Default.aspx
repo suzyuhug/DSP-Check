@@ -38,8 +38,9 @@
         }
         .auto-style5 {
             position: absolute;
-            top: 127px;
-            left: 10px;
+            top: 137px;
+            left: 71px;
+            z-index: 1;
         }
     </style>
 </head>
@@ -54,7 +55,7 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" CssClass="auto-style5" OnClick="Button2_Click" style="z-index: 1" Text="Button" />
+            <asp:Button ID="Button2" runat="server" CssClass="auto-style5" OnClick="Button2_Click" Text="Button" />
             <br />
             <asp:Label ID="Label1" runat="server" CssClass="auto-style1" Text="PO:"></asp:Label>
             <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style2"></asp:TextBox>
